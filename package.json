@@ -1,0 +1,16 @@
+{
+  "name": "nobita",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Lim Chee Aun <cheeaun@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "got": "^6.6.1",
+    "haversine": "^1.0.1"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "download": "curl -L https://github.com/robmathers/WhereAmI/releases/download/v1.02/whereami-1.02.zip | bsdtar -xvf-",
+    "postinstall": "yarn run download"
+  }
+}
