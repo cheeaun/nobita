@@ -29,7 +29,7 @@ exec('./whereami', (err, stdout, stderr) => {
     longitude: venue.lng,
   }, { unit: 'meter' });
 
-  if (distance > 5){ // too far
+  if (distance >= 5){ // too far
     console.log('🤔  Look like you are not in the zone... ' + parseInt(distance, 10) + 'm away?');
     return;
   }
