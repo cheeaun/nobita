@@ -2,6 +2,7 @@ const { exec } = require('child_process');
 const got = require('got');
 const haversine = require('haversine');
 const fs = require('fs');
+const path = require('path');
 
 const { venue, access_token } = require('./config.json');
 
@@ -12,7 +13,7 @@ if ((lastRun || '').trim() == new Date().toDateString()){
   return;
 }
 
-exec('./whereami', (err, stdout, stderr) => {
+exec(path.join(__dirname, './whereami'), (err, stdout, stderr) => {
   if (err) {
     console.error(err);
     return;
