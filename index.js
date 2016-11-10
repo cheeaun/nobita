@@ -6,8 +6,9 @@ const path = require('path');
 
 const { venue, access_token } = require('./config.json');
 
-const lastRunFile = '.lastrun';
+const lastRunFile = path.join(__dirname, '.lastrun');
 const lastRun = fs.existsSync(lastRunFile) && fs.readFileSync(lastRunFile, { encoding: 'utf-8' });
+
 if ((lastRun || '').trim() == new Date().toDateString()){
   console.log('📆  Looks like you are already checked in for today. Try again tomorrow!');
   return;
