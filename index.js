@@ -6,6 +6,8 @@ const path = require('path');
 
 const { venue, access_token } = require('./config.json');
 
+console.log('💨  ' + (new Date().toDateString()) + ': Let\'s run!');
+
 const lastRunFile = path.join(__dirname, '.lastrun');
 const lastRun = fs.existsSync(lastRunFile) && fs.readFileSync(lastRunFile, { encoding: 'utf-8' });
 
