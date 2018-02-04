@@ -24,7 +24,7 @@ exec(path.join(__dirname, './whereami'), (err, stdout, stderr) => {
 
   console.log(stdout);
 
-  const [lat, lng, accuracy] = stdout.split('\n').filter((line) => /(lat|long|accuracy)/i.test(line)).map((line) => line.match(/-[\d\.]+/)[0]);
+  const [lat, lng, accuracy] = stdout.split('\n').filter((line) => /(lat|long|accuracy)/i.test(line)).map((line) => line.match(/[-\d\.]+/)[0]);
   const distance = haversine({
     latitude: lat,
     longitude: lng,
