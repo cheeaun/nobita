@@ -15,8 +15,11 @@ Steps
 1. `yarn` to setup all dependencies and download `whereami`.
 2. Copy `config.sample.json` to `config.json` and configure:
   - `access_token`: OAuth access token from Foursquare
-  - `venue`: ID and coordinates of venue
+  - `venue`: ID, coordinates, and radius (metres, optional, default 10) of venue
+  - `venues`: Object containing name:venue pair (same structure as `venue`)
 3. Schedule run script with `launchd` or [LaunchControl](http://www.soma-zone.com/LaunchControl/).
+  - (optional) first argument is the venue key to select from `venues` in `config.json`
+  - If no argument is supplied it will use `venue`
 
 To get the access token, follow instructions on this page: https://developer.foursquare.com/overview/auth
 
