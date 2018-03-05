@@ -8,7 +8,7 @@
   "venues": {
     "sheffield": {
       "id": "",
-      "distance": 2000,
+      "radius": 2000,
       "lat": 53.3811,
       "lng": -1.4701
     }
