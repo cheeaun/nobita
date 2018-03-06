@@ -4,11 +4,15 @@ const haversine = require('haversine');
 const fs = require('fs');
 const path = require('path');
 
-const { venue, access_token } = require('./config.json');
+const config = require('./config.json');
+const { access_token } = config;
+const arg = process.argv[2];
+const venue = arg ? config.venues && config.venues[arg] : config.venue;
+if (!venue) return console.error(`🙅  ${arg ? arg : 'Venue'} not found in config.json`);
 
 console.log('💨  ' + (new Date().toDateString()) + ': Let\'s run!');
 
-const lastRunFile = path.join(__dirname, '.lastrun');
+const lastRunFile = path.join(__dirname, `${arg ? '.' + arg : ''}.lastrun`);
 const lastRun = fs.existsSync(lastRunFile) && fs.readFileSync(lastRunFile, { encoding: 'utf-8' });
 
 if ((lastRun || '').trim() == new Date().toDateString()){
@@ -33,7 +37,7 @@ exec(path.join(__dirname, './whereami'), (err, stdout, stderr) => {
     longitude: venue.lng,
   }, { unit: 'meter' });
 
-  if (distance > 10){ // too far
+  if (distance > (venue.radius || 10)){ // too far
     console.log('🤔  Look like you are not in the zone... ' + parseInt(distance, 10) + 'm away?');
     return;
   }

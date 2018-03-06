@@ -2,4 +2,4 @@ config.json
 whereami
 node_modules
 .DS_Store
-.lastrun
+*.lastrun
