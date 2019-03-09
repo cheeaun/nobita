@@ -11,6 +11,6 @@
   "scripts": {
     "start": "node index.js",
     "download": "curl -L https://github.com/robmathers/WhereAmI/releases/download/v1.02/whereami-1.02.zip | bsdtar -xvf-",
-    "postinstall": "yarn run download"
+    "postinstall": "npm run download"
   }
 }

@@ -12,7 +12,7 @@ A simple script to check in to a (configurable) [Foursquare](https://foursquare.
 Steps
 ---
 
-1. `yarn` to setup all dependencies and download `whereami`.
+1. `npm i` to setup all dependencies and download `whereami`.
 2. Copy `config.sample.json` to `config.json` and configure:
   - `access_token`: OAuth access token from Foursquare
   - `venue`: ID, coordinates, and radius (metres, optional, default 10) of venue
